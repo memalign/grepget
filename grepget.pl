@@ -17,10 +17,10 @@ if(length($url)) {
         if($link =~ /^\//) {
             if($url =~ /^(http\:\/\/[^\/]+\/)/) {
                 my $baseurl = $1;
-                `wget $baseurl$link`; 
+                `curl -o $link $baseurl$link`; 
             }
         } else {
-            `wget "$url$link"`;
+            `curl -o "$link" "$url$link"`;
         }
       }
     }
